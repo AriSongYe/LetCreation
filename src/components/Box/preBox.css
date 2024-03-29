@@ -1,0 +1,19 @@
+.preBox {
+    text-align: center;
+    background-color: darkgray;
+    border-radius: 5px;
+    padding: 20px;
+    width: 200px;
+    height: 75px;
+}
+
+.preImg {
+    width: 200px;
+    height: 65px;
+}
+
+.preTitle {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}

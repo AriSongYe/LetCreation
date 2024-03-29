@@ -1,30 +1,50 @@
+import "./main.css";
+
 import axios from 'axios';
+
+import PreBox from './Box/preBox';
+import Modal from 'react-modal';
+import PostModal from "./Post/postModal";
+
 import {useState, useEffect} from "react";
 
 function Main() {
-    const [data, setData] = useState(1);
+    const [data, setData] = useState({});
+
+
+    const [isModalOpen, setModalOpen] = useState(false);
+    const openPostModal = () => {
+        setModalOpen(true);
+    };
+    const closeModal = () => {
+        setModalOpen(false);
+    };
 
     useEffect(() => {
-      // GET 요청을 보낼 URL
-      const apiUrl = 'http://localhost:3000/api/data';
-      // Axios를 사용하여 GET 요청 보내기
-      axios.get(apiUrl)
-        .then(response => {
-          // 응답 데이터 설정
-          setData(response.data);
-          console.log(response.data);
-        })
-        .catch(error => {
-          // 에러 처리
-          console.error('요청 중 오류 발생:', error);
-        });
-    }, []); // 컴포넌트가 처음 렌더링될 때 한 번만 실행
+        const apiUrl = 'http://localhost:3000/api/data';
+        axios.get(apiUrl)
+            .then(response => {
+                setData(response.data);
+            })
+            .catch(error => {
+                console.error('요청 중 오류 발생:', error);
+            });
+    }, []);
+
+    console.log(data); // 상태 변수인 data를 콘솔에 로깅
+
     return (
-        <div>
-            <h1>hello React-Project</h1>
-            {data ? <div></div> : <h1>{data.name}</h1>}
+        <div class="box-container">
+            <PreBox
+                title="실루엣 퀴즈"
+                id="1"
+                imgPath="실루엣퀴즈.png"
+            />
+            {data.length > 0 && <h1>{data[0].name}</h1>}
+            <button onClick={openPostModal}>Add Program</button>
+            <PostModal isOpen={isModalOpen} onRequestClose={closeModal}/>
         </div>
-        );
+    );
 }
 
 export default Main;
