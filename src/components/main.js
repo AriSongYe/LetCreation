@@ -9,40 +9,30 @@ import PostModal from "./Post/postModal";
 import {useState, useEffect} from "react";
 
 function Main() {
-    const [data, setData] = useState({});
-
-
-    const [isModalOpen, setModalOpen] = useState(false);
-    const openPostModal = () => {
-        setModalOpen(true);
-    };
-    const closeModal = () => {
-        setModalOpen(false);
-    };
+    const [jsonData, setJsonData] = useState([]);
 
     useEffect(() => {
-        const apiUrl = 'http://localhost:3000/api/data';
-        axios.get(apiUrl)
-            .then(response => {
-                setData(response.data);
-            })
-            .catch(error => {
-                console.error('요청 중 오류 발생:', error);
-            });
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/api/data');
+                setJsonData(response.data);
+            } catch (error) {
+                console.error('데이터를 불러오는 중 오류가 발생했습니다:', error);
+            }
+        };
+        fetchData();
     }, []);
 
-    console.log(data); // 상태 변수인 data를 콘솔에 로깅
-
     return (
-        <div class="box-container">
-            <PreBox
-                title="실루엣 퀴즈"
-                id="1"
-                imgPath="실루엣퀴즈.png"
-            />
-            {data.length > 0 && <h1>{data[0].name}</h1>}
-            <button onClick={openPostModal}>Add Program</button>
-            <PostModal isOpen={isModalOpen} onRequestClose={closeModal}/>
+        <div>
+            <div class="box-container">
+                <PostModal/>
+                <PreBox
+                    title="실루엣 퀴즈"
+                    id="1"
+                    imgPath="실루엣퀴즈.png"
+                />
+            </div>
         </div>
     );
 }

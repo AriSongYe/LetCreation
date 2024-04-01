@@ -1,0 +1,8 @@
+.post-box {
+    text-align: center;
+    background-color: darkgray;
+    border-radius: 5px;
+    padding: 20px;
+    width: 200px;
+    height: 75px;
+}

@@ -1,4 +1,4 @@
-.preBox {
+.pre-box {
     text-align: center;
     background-color: darkgray;
     border-radius: 5px;
@@ -7,13 +7,18 @@
     height: 75px;
 }
 
-.preImg {
+.pre-img {
     width: 200px;
     height: 65px;
 }
 
-.preTitle {
+.pre-title {
     font-size: 16px;
     padding: 0;
     margin: 0;
+}
+
+.modal-image{
+    width: 500px;
+    height: 100px;
 }
