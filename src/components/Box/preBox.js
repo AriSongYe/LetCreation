@@ -30,6 +30,9 @@ function PreBox(props) {
             >
                 <h1>This First Modal</h1>
                 <img class="modal-image"src={`http://localhost:3000/api/imgs/실루엣퀴즈.png`} alt="Image" />
+                <div class="comment-container">
+                    <button/>
+                </div>
         </Modal>}
         
     </div>);
