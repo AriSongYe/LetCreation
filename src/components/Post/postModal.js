@@ -46,23 +46,28 @@ function PostModal() {
     };
 
     const handleSubmit = async () => {
+    
         try {
-            const data = {
-                title: title,
-                summary: summary,
-                file: selectedFile,
-                image: selectedImage
-            };    
-            const response = await axios.post('/api/submit', data);
-            console.log('Server response:', response.data);
-        } catch (error) {
-            console.error('Error submitting data:', error);
-        }
-    };
+        const formData = new FormData();
+        formData.append('title', title); // 제목 추가
+        formData.append('summary', summary); // 요약 추가
+        formData.append('file', selectedFile); // 파일 추가
+        formData.append('image', selectedImage); // 이미지 추가 (선택적)
+        
+        const response = await axios.post('/api/submit', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data' // 파일 업로드를 위한 헤더 설정
+            }
+        });
+    } catch (error) {
+        console.error('Error submitting data:', error);
+    }
+};
 
     const openModal = () => {
         setModalOpen(true);
     };
+
     const closeModal = () => {
         setModalOpen(false); 
     };
