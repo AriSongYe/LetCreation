@@ -53,7 +53,6 @@ function PostModal() {
         formData.append('image', selectedImage);
         formData.append('title', title);
         formData.append('summary', summary);
-
         
         const response = await axios.post('/api/submit', formData, {
             headers: {
