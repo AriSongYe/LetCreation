@@ -19,7 +19,7 @@ function PostModal() {
             setSelectedFile(file);
         } else {
             alert('Invalid file format. Please select a PDF, PPT, DOC, or HWP file.');
-            event.target.value = null; // Reset file input
+            event.target.value = null;
         }
     };
 
@@ -32,7 +32,7 @@ function PostModal() {
                 setSelectedImage(image);
             } else {
                 alert('Invalid image file format. Please select an image file (JPG, JPEG, PNG, GIF, BMP).');
-                event.target.value = null; // Reset file input
+                event.target.value = null;
             }
         }
     };
@@ -49,19 +49,21 @@ function PostModal() {
     
         try {
         const formData = new FormData();
-        formData.append('title', title); // 제목 추가
-        formData.append('summary', summary); // 요약 추가
-        formData.append('file', selectedFile); // 파일 추가
-        formData.append('image', selectedImage); // 이미지 추가 (선택적)
+        formData.append('file', selectedFile);
+        formData.append('image', selectedImage);
+        formData.append('title', title);
+        formData.append('summary', summary);
+
         
         const response = await axios.post('/api/submit', formData, {
             headers: {
-                'Content-Type': 'multipart/form-data' // 파일 업로드를 위한 헤더 설정
+                'Content-Type': 'multipart/form-data'
             }
         });
     } catch (error) {
         console.error('Error submitting data:', error);
     }
+    closeModal();
 };
 
     const openModal = () => {
