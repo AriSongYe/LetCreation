@@ -6,64 +6,38 @@ import { useState } from 'react';
 
 function PostModal() {
     const [isModalOpen, setModalOpen] = useState(false);
-    const [selectedFile, setSelectedFile] = useState(null);
-    const [selectedImage, setSelectedImage] = useState(null);
-    const [title, setTitle] = useState("");
-    const [summary, setSummary] = useState("");
 
-    const handleFileChange = (event) => {
-        const file = event.target.files[0];
-        const allowedFormats = ['pdf', 'ppt', 'pptx', 'doc', 'docx', 'hwp'];
-        const fileExtension = file.name.split('.').pop().toLowerCase();
-        if (allowedFormats.includes(fileExtension)) {
-            setSelectedFile(file);
-        } else {
-            alert('Invalid file format. Please select a PDF, PPT, DOC, or HWP file.');
-            event.target.value = null;
-        }
-    };
-
-    const handleImageChange = (event) => {
-        const allowedImageFormats = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
-        const image = event.target.files[0];
-        if (image) {
-            const fileExtension = image.name.split('.').pop().toLowerCase();
-            if (allowedImageFormats.includes(fileExtension)) {
-                setSelectedImage(image);
-            } else {
-                alert('Invalid image file format. Please select an image file (JPG, JPEG, PNG, GIF, BMP).');
-                event.target.value = null;
-            }
-        }
-    };
-
-    const handleTitleChange = (event) => {
-        setTitle(event.target.value);
-    };
-
-    const handleSummaryChange = (event) => {
-        setSummary(event.target.value);
-    };
-
-    const handleSubmit = async () => {
-    
-        try {
-        const formData = new FormData();
-        formData.append('file', selectedFile);
-        formData.append('image', selectedImage);
-        formData.append('title', title);
-        formData.append('summary', summary);
+    const uploadFile = async () => {
+        const programFile = document.getElementById('post-file').files[0];
+        const image = document.getElementById('post-img').files[0];
+        const title = document.getElementById('post-title').value;
+        const summary = document.getElementById('post-summary').value;
         
-        const response = await axios.post('/api/submit', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
+        console.log(programFile);
+        console.log(image);
+        console.log(title);
+        console.log(summary);
+
+        if (programFile !== null && image !== null && title.trim() !== '' && summary !== '')
+        {
+            console.log("Success try");
+            try {
+                const formData = new FormData();
+                formData.append('file', programFile);
+                formData.append('image', image);
+                formData.append('title', title);
+                formData.append('summary', summary);
+                
+                const response = await axios.post('/api/submit', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+            } catch (error) {
+                console.error('Error submitting data:', error);
             }
-        });
-    } catch (error) {
-        console.error('Error submitting data:', error);
-    }
-    closeModal();
-};
+        }
+    };
 
     const openModal = () => {
         setModalOpen(true);
@@ -76,23 +50,24 @@ function PostModal() {
     return(
     <div>
         <div class="post-box" onClick={openModal}>
-            <div class="post-title">Add a Program</div>
+            <h3>Add a Program</h3>
         </div>
-        {(isModalOpen &&
+        {/* Post Modal */}
         <Modal
-            isOpen={openModal}
+            isOpen={isModalOpen}
             onRequestClose={closeModal}
             contentLabel="Post Modal">
-            <h1>Add new Program</h1>
+            <h1>프로그램 추가</h1>
             <div class="post-input-container">
-                <input class="post-file" type="file" onChange={handleFileChange} placeholder={selectedFile ? selectedFile.name : "Add a title"} />
-                <input class="post-img" type="file" onChange={handleImageChange} placeholder={selectedImage ? selectedImage.name : "Add a image"}/>
-                <input class="post-title" onChange={handleTitleChange} placeholder="Write a title" />
-                <input class="post-summary" onChange={handleSummaryChange} placeholder="Write Summary"/>
-                <button onClick={handleSubmit}>Submit</button>
+                <label for="post-file">프로그램 파일을 업로드하세요</label>
+                <input class="post-file" id="post-file" type="file" accept=".pdf,.ppt,.pptx,.docx,.doc,.hwp"/>
+                <label for="post-img">프로그램을 대표할 이미지를 업로드하세요</label>
+                <input class="post-img" id ="post-img"type="file" accept="image/*"/>
+                <input class="post-title" id="post-title" placeholder="프로그램 제목을 입력하세요" />
+                <textarea class="post-summary" id="post-summary" name="post-summary" placeholder="프로그램에 대하여 간략히 설명하세요"></textarea>
+                <button onClick={() => { uploadFile(); }}>Submit</button>
             </div>
         </Modal>
-        )}
     </div>
     );
 }

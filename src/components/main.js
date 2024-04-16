@@ -21,14 +21,14 @@ function Main() {
     }, []);
 
     return (
-        <div>
+        <main>
             <div className="box-container">
+                <PostModal />
                 {data.length > 0 && data.map((item, index) => (
                     <PreBox key={index} data={item} />
                 ))}
-                <PostModal />
             </div>
-        </div>
+        </main>
     );
 }
 
