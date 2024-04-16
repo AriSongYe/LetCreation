@@ -1,9 +1,12 @@
 // Main.js
-import './main.css'; // CSS 파일을 import 합니다.
+import './main.css';
+
 import { useState, useEffect } from "react";
 import axios from "axios";
+
 import PreBox from './Box/preBox';
 import PostModal from "./Post/postModal";
+import NavBar from './NavBar/navbar';
 
 function Main() {
     const [data, setData] = useState([]);
@@ -22,10 +25,11 @@ function Main() {
 
     return (
         <main>
+            <NavBar/>
             <div className="box-container">
-                <PostModal />
+                <PostModal/>
                 {data.length > 0 && data.map((item, index) => (
-                    <PreBox key={index} data={item} />
+                    <PreBox key={index} data={item}/>
                 ))}
             </div>
         </main>

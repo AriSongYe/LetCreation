@@ -53,10 +53,7 @@ function PostModal() {
             <h3>Add a Program</h3>
         </div>
         {/* Post Modal */}
-        <Modal
-            isOpen={isModalOpen}
-            onRequestClose={closeModal}
-            contentLabel="Post Modal">
+        <Modal isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="Post Modal">
             <h1>프로그램 추가</h1>
             <div class="post-input-container">
                 <label for="post-file">프로그램 파일을 업로드하세요</label>
