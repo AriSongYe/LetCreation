@@ -3,10 +3,10 @@ import './main.css';
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 import PreBox from './Box/preBox';
 import PostModal from "./Post/postModal";
-import NavBar from './NavBar/navbar';
+import NavBar from './ui/NavBar/navbar';
+import PreBoxSkeleton from './ui/Skeleton/preBoxSkeleton';
 
 function Main() {
     const [data, setData] = useState([]);
@@ -15,7 +15,9 @@ function Main() {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/api/data');
-                setData(response.data);
+                const timer = setTimeout(() => {
+                    setData(response.data);
+                }, 3000);
             } catch (error) {
                 console.error('데이터를 불러오는 중 오류가 발생했습니다:', error);
             }
@@ -31,6 +33,7 @@ function Main() {
                 {data.length > 0 && data.map((item, index) => (
                     <PreBox key={index} data={item}/>
                 ))}
+                {!data.length && <PreBoxSkeleton/>}
             </div>
         </main>
     );

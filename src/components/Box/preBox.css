@@ -8,9 +8,6 @@
     margin: 10px;
 }
 
-.pre-box-container {
-    background-color: #333;
-}
 
 .pre-img {
     width: 200px;
@@ -22,6 +19,7 @@
     font-size: 12px;
     padding: 0px;
     margin-bottom: 2px;
+    color: white;
 }
 
 .modal-image{

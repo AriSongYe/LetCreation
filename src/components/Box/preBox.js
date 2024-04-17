@@ -16,7 +16,7 @@ function PreBox({ data }) {
 
     return (
         <div className="pre-box" onClick={openModal}>
-            <div>
+            <div className="pre-box-container">
                 <img className="pre-img" src={`http://localhost:3000/api/imgs/${data.imagePath}`} alt="이미지"></img>
                 <div className="pre-title">{data.title}</div>
             </div>
