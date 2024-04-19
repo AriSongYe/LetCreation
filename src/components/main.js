@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import PreBox from './Box/preBox';
 import PostModal from "./Post/postModal";
-import NavBar from './ui/NavBar/navbar';
+import Header from './ui/Header/header';
 import PreBoxSkeleton from './ui/Skeleton/preBoxSkeleton';
 
 function Main() {
@@ -15,7 +15,7 @@ function Main() {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/api/data');
-                const timer = setTimeout(() => {
+                setTimeout(() => {
                     setData(response.data);
                 }, 3000);
             } catch (error) {
@@ -25,15 +25,22 @@ function Main() {
         fetchData();
     }, []);
 
+    const Skeletons = (n) => {
+        const skeletons = [];
+        for (let i = 0; i < n; i++) {
+            skeletons.push(<PreBoxSkeleton key={i} />);
+        }
+        return skeletons;
+    };
+
     return (
-        <main>
-            <NavBar/>
+        <main class="main" id="main"> 
+            <Header/>
             <div className="box-container">
                 <PostModal/>
-                {data.length > 0 && data.map((item, index) => (
+                {data.length > 0 ? data.map((item, index) => (
                     <PreBox key={index} data={item}/>
-                ))}
-                {!data.length && <PreBoxSkeleton/>}
+                )): <PreBoxSkeleton/>}
             </div>
         </main>
     );
