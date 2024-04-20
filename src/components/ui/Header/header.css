@@ -49,5 +49,20 @@
 }
 
 .nav-link:hover {
-    background-color: #555;
+    animation: colorChange 1s infinite;
+}
+
+@keyframes colorChange {
+    0% {
+        color: var(--ifm-color-gray-400);
+    }
+    33% {
+        color: var(--ifm-color-gray-300);
+    }
+    66% {
+        color: var(--ifm-color-gray-200);
+    }
+    100% {
+        color: var(--ifm-color-gray-100);
+    }
 }
