@@ -49,7 +49,7 @@
 }
 
 .nav-link:hover {
-    animation: colorChange 1s infinite;
+    animation: colorChange 0.7s infinite;
 }
 
 @keyframes colorChange {

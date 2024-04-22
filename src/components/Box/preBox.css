@@ -1,11 +1,12 @@
 .pre-box {
     text-align: center;
-    background-color: darkgray;
+    background-color: var(--ifm-color-gray-300);
     border-radius: 5px;
     padding: 10px;
     width: 200px;
     height: 112.5px;
     margin: 5px;
+    z-index: 1; /* 모달 위에 표시하기 위해 z-index 설정 */
 }
 
 
