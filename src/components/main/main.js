@@ -5,8 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import PreBox from './Box/preBox';
 import PostModal from "./Post/postModal";
-import Header from './ui/Header/header';
-import PreBoxSkeleton from './ui/Skeleton/preBoxSkeleton';
+import PreBoxSkeleton from './Skeleton/preBoxSkeleton';
 
 function Main() {
     const [data, setData] = useState([]);
@@ -35,7 +34,6 @@ function Main() {
 
     return (
         <main class="main" id="main"> 
-            <Header/>
             <div className="box-container">
                 <PostModal/>
                 {data.length > 0 ? data.map((item, index) => (
