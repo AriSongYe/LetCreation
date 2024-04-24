@@ -23,8 +23,6 @@ function PreBox({ data }) {
             </div>
         <Modal isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="Program Modal" shouldCloseOnOverlayClick={true}>
             <h1>{data.title}</h1>
-            <button onClick={closeModal}>close</button>
-
             <img className="modal-image" src={`http://localhost:3000/api/imgs/${data.imagePath}`} alt="Image" />
             <p>{data.summary}</p>
             <DownButton filepath={data.filePath}/>
