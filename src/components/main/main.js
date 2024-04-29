@@ -13,7 +13,11 @@ function Main() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/api/data');
+                console.log(process.env.REACT_APP_LOGIN_KEY);
+                console.log(process.env.REACT_APP_LOGIN_JS_KEY);
+                console.log(process.env.REACT_APP_RIGHT);          
+          
+                const response = await axios.get('http://letcreation.store/api/data');
                 setTimeout(() => {
                     setData(response.data);
                 }, 3000);
