@@ -1,6 +1,6 @@
-const { render, waitFor } = require('@testing-library/react');
-const axios = require('axios').default;
-const Main = require('../Main').default;
+import { render, waitFor } from '@testing-library/react';
+import axios from 'axios';
+import Main from '../Main';
 
 jest.mock('axios');
 
