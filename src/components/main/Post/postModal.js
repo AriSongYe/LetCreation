@@ -28,7 +28,7 @@ function PostModal() {
                 formData.append('title', title);
                 formData.append('summary', summary);
                 
-                const response = await axios.post('/api/submit', formData, {
+                await axios.post('/api/submit', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }

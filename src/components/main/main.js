@@ -42,7 +42,7 @@ function Main() {
                 <PostModal/>
                 {data.length > 0 ? data.map((item, index) => (
                     <PreBox key={index} data={item}/>
-                )): <PreBoxSkeleton/>}
+                )): Skeletons(30)}
             </div>
         </main>
     );
