@@ -13,7 +13,8 @@ describe('Main component', () => {
     { id: 2, title: 'Title 2', content: '' },
     { id: 3, title: 'Title 3', content: 'Content 3' },
     { id: 9007199254740991, title: 'iD max value Title 4', content: 'Content 4' },
-    { id: -9007199254740991, title: 'iD max value Title 5', content: 'Content 4' },    
+    { id: -9007199254740991, title: 'iD max value Title 5', content: 'Content 5' },
+    { id: -9007199254740991, title: 'iD max value Title 6', content: 'Content 6' },    
     ];
     axios.get.mockResolvedValueOnce({ data });
     const { getByText } = render(<Main />);
@@ -24,10 +25,8 @@ describe('Main component', () => {
     });
     });
 });
-
     test('renders with skeletons when no data', async () => {
     const { getByTestId } = render(<Main />);
-
     await waitFor(() => {
         expect(getByTestId('skeleton-container')).toBeInTheDocument();
     });
