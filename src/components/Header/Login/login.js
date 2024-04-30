@@ -8,7 +8,7 @@ const Login = () => {
     return (
     <div>
         <a href={kakaoToken}>
-            <img src="/login.png"></img>
+            <img src="/login.png" alt="이미지"></img>
         </a>
     </div>
 );
