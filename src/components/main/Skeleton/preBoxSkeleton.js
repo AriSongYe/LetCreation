@@ -1,4 +1,4 @@
-import './PreBoxSkeleton.css'; // 스켈레톤 애니메이션을 위한 CSS 파일
+import './preBoxSkeleton.css'; // 스켈레톤 애니메이션을 위한 CSS 파일
 import Shimmer from './Shimmer';
 
 function PreBoxSkeleton() {
