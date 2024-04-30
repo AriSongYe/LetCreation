@@ -28,7 +28,7 @@ function PostModal() {
                 formData.append('title', title);
                 formData.append('summary', summary);
                 
-                const response = await axios.post('/api/submit', formData, {
+                await axios.post('/api/submit', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -56,8 +56,6 @@ function PostModal() {
         {/* Post Modal */}
         <Modal isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="Post Modal">
             <h1>프로그램 추가</h1>
-            <button onClick={closeModal}>close</button>
-
             <div class="post-input-container">
                 <label for="post-file">프로그램 파일을 업로드하세요</label>
                 <input class="post-file" id="post-file" type="file" accept=".pdf,.ppt,.pptx,.docx,.doc,.hwp"/>

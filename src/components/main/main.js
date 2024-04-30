@@ -12,8 +12,8 @@ function Main() {
 
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                const response = await axios.get('http://localhost:3000/api/data');
+            try {    
+                const response = await axios.get('http://letcreation.store/api/data');
                 setTimeout(() => {
                     setData(response.data);
                 }, 3000);
@@ -38,7 +38,7 @@ function Main() {
                 <PostModal/>
                 {data.length > 0 ? data.map((item, index) => (
                     <PreBox key={index} data={item}/>
-                )): <PreBoxSkeleton/>}
+                )): Skeletons(30)}
             </div>
         </main>
     );
