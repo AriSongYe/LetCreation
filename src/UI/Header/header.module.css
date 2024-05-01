@@ -1,0 +1,68 @@
+header {
+    background-color: var(--color-just-black);
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 20;
+}
+
+.widest {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 120rem;
+    padding-left: max(1.5rem, min(1.5534vw + 1.13592rem, 3rem));
+    padding-right: max(1.5rem, min(1.5534vw + 1.13592rem, 3rem));
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1.5px solid var(--color-surface25);
+    gap: max(2rem, min(5.73529vw - 2.44485rem, 4.4375rem));
+    padding-bottom: 0.6875rem;
+    padding-top: 0.75rem;
+}
+
+.bar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    display: inline;
+}
+
+.link {
+    color: var(--ifm-color-gray-500);
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+.link:hover {
+    animation: colorChange 0.5s forwards;
+}
+
+@keyframes colorChange {
+    0% {
+        color: var(--ifm-color-gray-400);
+    }
+    33% {
+        color: var(--ifm-color-gray-300);
+    }
+    66% {
+        color: var(--ifm-color-gray-200);
+    }
+    100% {
+        color: var(--ifm-color-gray-100);
+    }
+}
