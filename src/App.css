@@ -1,32 +1,38 @@
-:root {
-    --color-shockingly-green: #0ae448;
-    --color-just-black: #0e100f;
-    --color-surface-white: #fffce1;
-    --color-pink: #fec5fb;
-    --color-shockingly-pink: #f100cb;
-    --color-orangey: #ff8709;
-    --color-lilac: #9d95ff;
-    --color-lt-green: #abff84;
-    --color-blue: #00bae2;
-    --color-grey: gray;
-    --color-surface75: #bbbaa6;
-    --color-surface50: #7c7c6f;
-    --color-surface25: #42433d;
-    
-    --ifm-color-gray-100: #fffce4;
-    --ifm-color-gray-200: #dadbc6;
-    --ifm-color-gray-300: #b7bbaa;
-    --ifm-color-gray-400: #969b8e;
-    --ifm-color-gray-500: #767d73;
-    --ifm-color-gray-600: #596058;
-    --ifm-color-gray-700: #3b3b44;
-    --ifm-color-gray-800: #28292b;
-    --ifm-color-gray-900: #1c1d1e;
+.App {
+  text-align: center;
 }
 
-* {
-    font-family: 'GmarketSans';
-    font-size: 18px;
-    margin: 0;
-    padding: 0;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
