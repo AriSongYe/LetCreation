@@ -21,12 +21,12 @@ function PreBox({ data }) {
     return(
         <div className={styles.container}>
             <figure onClick={openModal}>
-                <img className={styles.img} src={`http://localhost:3000/api/imgs/${data.imagePath}`} alt="preView Image!"/>
+                <img className={styles.img} src={`http://localhost:3000/api/imgs/${data.imagePath}`} alt="preView"/>
                 <figcaption className={styles.caption}>{data.title}</figcaption>
             </figure>
             <Modal isOpen={isModalOpen} onRequestClose={closeModal} ariaHideApp={false}>
                 <h1>{data.title}</h1>
-                <img className={styles.modalImage} src={`http://localhost:3000/api/imgs/${data.imagePath}`} alt="Image" />
+                <img className={styles.modalImage} src={`http://localhost:3000/api/imgs/${data.imagePath}`} alt="Modal" />
                 <p>{data.summary}</p>
                 <button onClick={() => downloadFile({filepath: data.filePath})}/>
                 <div className="comment-container">

@@ -25,16 +25,18 @@
     padding: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.25rem;
+    gap: 0.05rem;
 }
 
 .label {
     margin-left: 0.5rem;
-    font-size: 0.825rem;
+    font-size: 0.725rem;
 }
 
 .title {
     width: 41.85%;
+    height: 1rem;
+    font-size: 3rem;
 }
 
 .container input, 
@@ -43,7 +45,7 @@
     padding: 8px 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 0.8rem;
+    font-size: 0.725rem;
 }
 
 .container button {
@@ -63,4 +65,33 @@
     width: 95.75%;
     height: 5rem;
     line-height: 1rem;
+}
+
+
+.peopleNum {
+    margin: 10px;
+    font-size: 0.725rem;
+}
+
+.peopleNumLabel {
+    margin: 10px;
+    margin-bottom: 0px;
+    font-size: 0.725rem;
+}
+
+.submitButton {
+    text-align: center;
+    align-items: center;
+}
+
+.submitContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.File:hover,
+.img:hover {
+    box-shadow: 0 0 0 0.1rem #0056b3;
+    cursor: pointer;
 }

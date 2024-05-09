@@ -37,8 +37,8 @@ function Boxes() {
         <section data-testid="PreBoxes" className={styles.section} id="PreBoxes">
             <PostBox onPost={handlePost} />
             {data.length > 0 ? data.map((el, index) => {
-                return (<PreBox key={index} data={el}/>);
-            }): (renderSkeletons())};
+                return (<PreBox key={index} data={el}/>)
+            }): (renderSkeletons())}
         </section>
     )
 }
