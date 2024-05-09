@@ -4,9 +4,10 @@ import styles from './Boxes.module.css'
 import PreBox from './preBox'
 import PostBox from './postBox';
 import getMainData from '../../API/getMainData';
+import Skeleton from '../Skeleton/Skeleton';
 
 function Boxes() {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
     const [postData, setPostData] = useState(false);
 
     useEffect(() => {
@@ -22,12 +23,22 @@ function Boxes() {
         setPostData(!postData);
     }
 
+    const renderSkeletons = () => {
+        const skeletons = [];
+        for (let i = 0; i < 50; i++) {
+            skeletons.push(<Skeleton key={i} />);
+        }
+        return skeletons;
+    };
+
+
+
     return(
-        <section data-testid="PreBoxes" class={styles.section} id="PreBoxes">
+        <section data-testid="PreBoxes" className={styles.section} id="PreBoxes">
             <PostBox onPost={handlePost} />
-            {data == null ? null :data.map((el, index) => {
+            {data.length > 0 ? data.map((el, index) => {
                 return (<PreBox key={index} data={el}/>);
-            })}
+            }): (renderSkeletons())};
         </section>
     )
 }
