@@ -8,6 +8,11 @@ const postProgram = async () => {
     const image = document.getElementById('post-img').files[0];
     const title = document.getElementById('post-title').value;
     const summary = document.getElementById('post-summary').value;
+    const select = document.getElementById('peopleNum');
+    const selectedIndex = select.selectedIndex
+    const headCnt = select.options[selectedIndex].value
+
+    console.log(`headCnt: ${headCnt}`);
     
     if (!isEmpty(programFile) && !isEmpty(image) && !isEmpty(title) && !isEmpty(summary))
     {
@@ -21,6 +26,7 @@ const postProgram = async () => {
             formData.append('image', image);
             formData.append('title', title);
             formData.append('summary', summary);
+            formData.append('headCnt', headCnt);
             
             const response = await axios.post('http://localhost:3000/api/submit', formData, {
                 headers: {

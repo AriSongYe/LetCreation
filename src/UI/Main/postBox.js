@@ -41,7 +41,7 @@ function PostBox( { onPost } ) {
                     <input className={styles.img} id ="post-img"type="file" accept="image/*"/>
                 </div>
                 <label className={styles.peopleNumLabel} for="number-of-people">프로그램 인원</label>
-                <select className={styles.peopleNum} id="number-of-people" name="number-of-people">
+                <select className={styles.peopleNum} id="peopleNum" name="number-of-people">
                     <option value="0">인원 제한 없음</option>
                     <option value="10">10명 이하</option>
                     <option value="50">50명 이하</option>

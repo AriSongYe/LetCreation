@@ -4,7 +4,7 @@
     border-radius: 5px;
     padding: 10px;
     width: 200px;
-    height: 115px;
+    height: 130px;
     margin: 5px;
 }
 
@@ -16,7 +16,7 @@
 
 .img {
     width: 200px;
-    height: 100px;
+    height: 112.5px;
     border-radius: 2px;
 }
 
@@ -25,10 +25,6 @@
     font-weight: bold;
 }
 
-.select {
-    font-size: 0.75rem;
-}
-
-.selectLabel {
-    font-size: 0.75rem;
+.modalImage {
+    width: 47.5%;
 }

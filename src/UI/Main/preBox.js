@@ -26,6 +26,7 @@ function PreBox({ data }) {
             </figure>
             <Modal isOpen={isModalOpen} onRequestClose={closeModal} ariaHideApp={false}>
                 <h1>{data.title}</h1>
+                <h2>{`인원제한: ${data.headCnt}`}</h2>
                 <img className={styles.modalImage} src={`http://localhost:3000/api/imgs/${data.imagePath}`} alt="Modal" />
                 <p>{data.summary}</p>
                 <button onClick={() => downloadFile({filepath: data.filePath})}/>
