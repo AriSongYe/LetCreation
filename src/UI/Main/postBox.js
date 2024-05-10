@@ -27,7 +27,7 @@ function PostBox( { onPost } ) {
     return (
         <div>
         <div className={styles.box} onClick={openModal}>
-            <h3>Add a Program</h3>
+            <img className={styles.plus} src="/plus.png" alt="plus"/>
         </div>
         {/* Post Modal */}
         <Modal isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="Post Modal" className={styles.modal} ariaHideApp={false}>

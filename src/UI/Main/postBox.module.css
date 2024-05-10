@@ -1,11 +1,18 @@
 .box {
-    text-align: center;
-    background-color: darkgray;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    padding: 10px;
     width: 200px;
-    height: 130px;
-    margin: 5px;
+    height: 140px;
+    margin: 6px;
+    display: flex;
+    border-color: var(--ifm-color-gray-200);
+    box-shadow: 0 0 0 0.1rem var(--ifm-color-gray-200);
+}
+
+.plus {
+    max-width: 100px;
+    max-height: 100px;
 }
 
 .box:hover {
