@@ -29,6 +29,13 @@ function PreBox({ data }) {
                 <h1 className={styles.boxtitle}>{data.title}</h1>
                 <h3>{`인원제한: ${data.headCnt === 0 ? "없음" : data.headCnt + "명 이하"}`}</h3>
                 <img className={styles.modalImage} src={`http://localhost:3000/api/imgs/${data.imagePath}`} alt="Modal" />
+            <figure onClick={openModal}>
+                <img className={styles.img} src={`http://localhost:3000/api/imgs/${data.imagePath}`} alt="preView Image!"/>
+                <figcaption className={styles.caption}>{data.title}</figcaption>
+            </figure>
+            <Modal isOpen={isModalOpen} onRequestClose={closeModal} ariaHideApp={false}>
+                <h1>{data.title}</h1>
+                <img className={styles.modalImage} src={`http://localhost:3000/api/imgs/${data.imagePath}`} alt="Image" />
                 <p>{data.summary}</p>
                 <button onClick={() => downloadFile({filepath: data.filePath})}/>
                 <div className="comment-container">

@@ -39,6 +39,7 @@ function Boxes() {
             {data.length > 0 ? data.map((el, index) => {
                 return (<PreBox key={index} data={el}/>)
             }): (renderSkeletons())}
+
         </section>
     )
 }

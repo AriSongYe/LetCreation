@@ -25,6 +25,19 @@
     cursor: pointer;
     border-color: var(--color-lilac);
     box-shadow: 0 0 0 0.05rem var(--color-lilac);
+    text-align: center;
+    background-color: var(--ifm-color-gray-300);
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    height: 115px;
+    margin: 5px;
+}
+
+.container:hover {
+    cursor: pointer;
+    border-color: var(--color-lilac);
+    box-shadow: 0 0 0 0.1rem var(--color-lilac);
 }
 
 .img {

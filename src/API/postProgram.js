@@ -20,6 +20,9 @@ const postProgram = async () => {
             alert(`파일 크기는 ${MAX_FILE_SIZE_MB}MB를 초과할 수 없습니다.`);
             return (-1);
         }
+
+    if (programFile !== null && image !== null && title.trim() !== '' && summary !== '')
+    {
         try {
             const formData = new FormData();
             formData.append('file', programFile);
@@ -42,6 +45,10 @@ const postProgram = async () => {
     } else {
         alert('모든 입력 필드를 채워주세요!');
         return (-1);
+
+        } catch (error) {
+            console.error('Error submitting data:', error);
+        }
     }
 };
 
