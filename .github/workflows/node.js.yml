@@ -17,7 +17,7 @@ jobs:
     name: Deploy to Yechan Runner
     defaults:
       run:
-        working-directory: ./home/yechan/app/
+        working-directory: /home/yechan/app/
 
     steps:
     - name: Checkout code
