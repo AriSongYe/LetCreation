@@ -20,9 +20,11 @@ jobs:
         working-directory: /home/yechan/app/
 
     steps:
-    - name: Checkout soucrce code.
-      uses: actions/checkout@v2
-
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        path: main
+        
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
