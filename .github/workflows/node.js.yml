@@ -23,5 +23,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       
-    - name: ls    
+    - name: Copy files
+      run: cp -r ${{ github.workspace }}/* /home/yechan/app/
+      
+    - name: ls
       run: ls -al
