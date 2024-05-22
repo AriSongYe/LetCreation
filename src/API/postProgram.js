@@ -45,9 +45,6 @@ const postProgram = async () => {
     } else {
         alert('모든 입력 필드를 채워주세요!');
         return (-1);
-
-        } catch (error) {
-            console.error('Error submitting data:', error);
         }
     }
 };

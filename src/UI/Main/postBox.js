@@ -31,16 +31,9 @@ function PostBox( { onPost } ) {
 
     return (
         <div>
-        <div className={styles.box} onClick={openModal}>
-            <img className={styles.plus} src="/plus.png" alt="plus"/>
-        </div>
-        <Modal isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="Post Modal" className={styles.modal} ariaHideApp={false}>
-            <h1>New Program</h1>
-            <div className={styles.container}>
-                <input className={styles.title} id="post-title" placeholder="프로그램 제목을 입력해주세요" />
-
-            <h3>Add a Program</h3>
-        </div>
+            <div className={styles.box} onClick={openModal}>
+                <img className={styles.plus} src="/plus.png" alt="plus"/>
+            </div>
         <Modal isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="Post Modal" className={styles.modal} ariaHideApp={false}>
             <h1>프로그램 추가</h1>
             <div className={styles.container}>
