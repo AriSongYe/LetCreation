@@ -1,26 +1,49 @@
 .container {
-    text-align: center;
-    background-color: var(--ifm-color-gray-300);
+    position: relative;
+    text-align: left;
     border-radius: 5px;
-    padding: 10px;
     width: 200px;
-    height: 115px;
-    margin: 5px;
+    height: 155px;
+    margin: 6px;
+    border-color: var(--ifm-color-gray-100);
+    box-shadow: 0 0 0 0.05rem var(--ifm-color-gray-500);
+    color: var(--ifm-color-gray-300);
+    overflow: hidden;
 }
+
+.likeImg {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    max-width: 16%;
+    max-height: 16%;
+}
+
+
 
 .container:hover {
     cursor: pointer;
     border-color: var(--color-lilac);
-    box-shadow: 0 0 0 0.1rem var(--color-lilac);
+    box-shadow: 0 0 0 0.05rem var(--color-lilac);
 }
+
 
 .img {
     width: 200px;
-    height: 100px;
+    height: 112.5px;
     border-radius: 2px;
+    padding: 0;
+    margin: 0;
 }
 
 .caption {
     font-size: 16px;
     font-weight: bold;
+    padding: 6px;
+    margin-left: 8px; /* 이 부분 추가 */
+
+}
+
+.modalImage {
+    width: 47.5%;
 }
